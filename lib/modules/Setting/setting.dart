@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp_project/shared/themeCubit/cubit.dart';
-import 'package:newsapp_project/shared/themeCubit/states.dart';
+import 'package:newsapp_project/shared/theme/Bloc/cubit.dart';
+import 'package:newsapp_project/shared/theme/Bloc/states.dart';
 class Setting extends StatelessWidget {
   const Setting({Key key}) : super(key: key);
 

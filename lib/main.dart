@@ -5,8 +5,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:newsapp_project/Layout/HomeScreen.dart';
 import 'package:newsapp_project/shared/Bloc/observer_bloc.dart';
 import 'package:newsapp_project/shared/Network/remote/dio_helper.dart';
-import 'package:newsapp_project/shared/themeCubit/cubit.dart';
-import 'package:newsapp_project/shared/themeCubit/states.dart';
+import 'package:newsapp_project/shared/theme/Bloc/cubit.dart';
+import 'package:newsapp_project/shared/theme/Bloc/states.dart';
 
 
 void main() {

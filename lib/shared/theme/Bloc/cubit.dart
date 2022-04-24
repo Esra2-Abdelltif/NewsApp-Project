@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp_project/shared/themeCubit/states.dart';
+import 'package:newsapp_project/shared/theme/Bloc/states.dart';
 
 
 class AppCubit extends Cubit<AppStates>
