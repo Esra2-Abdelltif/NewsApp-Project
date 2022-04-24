@@ -15,30 +15,34 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(//.. bt5lny ader acesse 3la ele da5l NewsCubit
-        create:(BuildContext context)=>NewsCubit(),
+        create:(BuildContext context)=>NewsCubit()..getBusiness(),
         child:BlocConsumer<NewsCubit,NewsStates>(
             listener: (BuildContext context,NewsStates state)
             {
 
             },
-            builder: (BuildContext context ,NewsStates state) {
+            builder: (BuildContext context ,NewsStates state)
+            {
               NewsCubit cubit = NewsCubit.get(context);
               return Scaffold(
                   key: ScaffoldKey,
                   appBar: AppBar(
                     title: Text('News App'),
                     actions: [
-                      IconButton(onPressed: (){}, icon:Icon( Icons.search))
+                      IconButton(onPressed: (){
+
+                      }, icon:Icon( Icons.search))
                     ],
                   ),
-                  bottomNavigationBar: BottomNavigationBar(
-                    items: cubit.bottomNavigation,
-                    currentIndex: cubit.CurrentIndex,
-                    onTap: (index) {
-                      cubit.ChangeIndex(index);
-                    },
-                  ),
-                  body: cubit.Screen[cubit.CurrentIndex]
+                  body: cubit.Screen[cubit.CurrentIndex],
+                bottomNavigationBar: BottomNavigationBar(
+                items: cubit.bottomNavigation,
+                currentIndex: cubit.CurrentIndex,
+                onTap: (index) {
+                  cubit.ChangeIndex(index);
+                },
+              ),
+
 
               );
             }
