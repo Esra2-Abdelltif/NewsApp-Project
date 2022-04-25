@@ -62,7 +62,7 @@ List<BottomNavigationBarItem> bottomNavigation= const [
         Quary: {
           'country':'eg',
           'category':'business',
-          'apiKey':'65f7f556ec76449fa7dc7c0069f040ca'
+          'apiKey':'ff780098bab6417fb46e4c9abe37ace1'
 
         },
     ).then((value) {
@@ -79,7 +79,7 @@ List<BottomNavigationBarItem> bottomNavigation= const [
     });
 
   }
- void getSport(){
+  void getSport(){
    emit(NewsGetSportLoadingState());
    if(Sport.length==0){
      DioHelper.getData(
@@ -87,7 +87,7 @@ List<BottomNavigationBarItem> bottomNavigation= const [
        Quary: {
          'country':'eg',
          'category':'sport',
-         'apiKey':'65f7f556ec76449fa7dc7c0069f040ca'
+         'apiKey':'ff780098bab6417fb46e4c9abe37ace1'
 
        },
      ).then((value) {
@@ -110,16 +110,16 @@ List<BottomNavigationBarItem> bottomNavigation= const [
 
 
  }
- void getScience(){
+  void getScience(){
    emit(NewsGetScienceLoadingState());
 
-if(Science.length==0){
+  if(Science.length==0){
   DioHelper.getData(
     Url: 'v2/top-headlines',
     Quary: {
       'country':'eg',
       'category':'science',
-      'apiKey':'65f7f556ec76449fa7dc7c0069f040ca'
+      'apiKey':'ff780098bab6417fb46e4c9abe37ace1'
 
     },
   ).then((value) {
