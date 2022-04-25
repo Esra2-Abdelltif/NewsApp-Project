@@ -4,29 +4,37 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:newsapp_project/Layout/HomeScreen.dart';
 import 'package:newsapp_project/shared/Bloc/observer_bloc.dart';
+import 'package:newsapp_project/shared/Network/local/cacheHelper.dart';
 import 'package:newsapp_project/shared/Network/remote/dio_helper.dart';
 import 'package:newsapp_project/shared/theme/Bloc/cubit.dart';
 import 'package:newsapp_project/shared/theme/Bloc/states.dart';
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
+  await CacheHelper.init();
+  bool IsDark =CacheHelper.getDate(key: 'IsDark');
   BlocOverrides.runZoned( () {
-      runApp(const MyApp());
+      runApp( MyApp(IsDark));
 
     },
     blocObserver: MyBlocObserver(),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+class MyApp extends StatelessWidget
+{
+  final bool IsDark;
+  MyApp(this.IsDark);
+
+  //const MyApp({Key key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context )=>AppCubit(),
+      create: (BuildContext context )=>AppCubit()..ChangeAppMode(fromShared: IsDark),
       child: BlocConsumer<AppCubit,AppStates>(
        listener: (context ,state){},
         builder: (context ,state){
@@ -113,5 +121,6 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+
 }
 
