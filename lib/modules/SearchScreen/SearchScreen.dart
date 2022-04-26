@@ -1,3 +1,4 @@
+import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newsapp_project/shared/Bloc/cubit.dart';
@@ -50,7 +51,14 @@ var Searchcontroller = TextEditingController();
 
                 ),
               ),
-              Expanded(child: BuildNewsItems(context: context,article:list)),
+              Expanded(child: ConditionalBuilder(
+                builder: (context) =>ListView.separated(
+                  separatorBuilder: (BuildContext context, int index) => const Divider(),
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder:(context,index)=> BuildNewsItems(article:list[index],context: context),
+                  itemCount: list.length,),
+                condition:state is! NewsGetBusinessLoadingState,
+                )),
             ],
           ),);
       },

@@ -82,7 +82,7 @@ Widget defulutTextFormFild ({@required TextEditingController controller, @requir
       borderRadius: BorderRadius.circular(25.0),
     ),
     labelText: label,
-    labelStyle: TextStyle(color: TextStyleColor),
+    labelStyle: TextStyle(color: TextStyleColor,),
     prefixIcon: Icon(prefixIcon,color: Colors.deepOrange,),
     border: OutlineInputBorder(),
 
