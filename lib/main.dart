@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:newsapp_project/Layout/HomeScreen.dart';
+import 'package:newsapp_project/shared/Bloc/cubit.dart';
 import 'package:newsapp_project/shared/Bloc/observer_bloc.dart';
 import 'package:newsapp_project/shared/Network/local/cacheHelper.dart';
 import 'package:newsapp_project/shared/Network/remote/dio_helper.dart';
@@ -11,6 +12,7 @@ import 'package:newsapp_project/shared/theme/Bloc/states.dart';
 
 
 void main() async {
+  //بيتاكد ان كل حاجه في ميثود خلصت وبعدين يفتح الابلكيشن
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
   await CacheHelper.init();
@@ -33,13 +35,15 @@ class MyApp extends StatelessWidget
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context )=>AppCubit()..ChangeAppMode(fromShared: IsDark),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: ((context) => NewsCubit()..getBusiness()..getScience()..getSport())),
+        BlocProvider(create: (BuildContext context )=>AppCubit()..ChangeAppMode(fromShared: IsDark))
+      ],
       child: BlocConsumer<AppCubit,AppStates>(
        listener: (context ,state){},
         builder: (context ,state){
          return  MaterialApp(
-
            theme: ThemeData(
                primarySwatch: Colors.deepOrange,
                scaffoldBackgroundColor: Colors.white,

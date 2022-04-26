@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp_project/modules/DetialsScreen/details_movies.dart';
 import 'package:newsapp_project/shared/Bloc/cubit.dart';
 import 'package:newsapp_project/shared/Bloc/states.dart';
 import 'package:newsapp_project/shared/Componeds/companed.dart';
@@ -24,12 +23,7 @@ class BusinessScreen extends StatelessWidget {
         builder: (context) =>ListView.separated(
           separatorBuilder: (BuildContext context, int index) => const Divider(),
             physics: BouncingScrollPhysics(),
-            itemBuilder:(context,index)=> InkWell(
-              onTap: (){
-               // Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) =>  const Description( ));
-
-              },
-                child: BuildNewsItems(article:list[index],context: context)),
+            itemBuilder:(context,index)=> BuildNewsItems(article:list[index],context: context),
             itemCount: list.length,),
         condition:state is! NewsGetBusinessLoadingState,
         fallback: (context)=>  Center(

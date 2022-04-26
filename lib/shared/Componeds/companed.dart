@@ -1,8 +1,10 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp_project/modules/DetialsScreen/details_movies.dart';
+import 'package:newsapp_project/shared/Constans/constans.dart';
+
+
 Widget BuildNewsItems({article,context})=>Padding(
   padding: const EdgeInsets.all(15.0),
   child: Row(
@@ -10,12 +12,6 @@ Widget BuildNewsItems({article,context})=>Padding(
       Container(
           height: 120,
           width: 120,
-          // decoration: BoxDecoration(
-          //   borderRadius: BorderRadius.circular(10.0),
-          //   image: DecorationImage(
-          //       image: NetworkImage('${article['urlToImage']}',),
-          //       fit: BoxFit.cover),
-          // )
         child:CachedNetworkImage(
           imageUrl:'${article['urlToImage']}',
           imageBuilder: (context, imageProvider) => Container(
@@ -49,11 +45,6 @@ Widget BuildNewsItems({article,context})=>Padding(
                 ),
               ),
               SizedBox(height: 5.0,),
-              Text ('${article['source']['name']}',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700,color: Colors.grey[600]),
-
-                maxLines: 2,
-              ),
               // SizedBox(height: 20.0),
               Row(
                 children: [
@@ -61,7 +52,19 @@ Widget BuildNewsItems({article,context})=>Padding(
                   SizedBox(width: 7.0,),
                   Text ('${article['publishedAt']}',
                     style: TextStyle(color: Colors.grey[400], fontSize: 13 , fontWeight: FontWeight.w700),)
-                ],)
+                ],),
+              SizedBox(height: 10,),
+              RichText(
+                text: TextSpan(
+                    text: 'Read More..',style: TextStyle(color: Colors.blue,decoration: TextDecoration.underline,),
+                     recognizer: TapGestureRecognizer()..onTap = () {
+                      NavigateTo(router: Description(),context: context);
+
+                    }),
+
+              ),
+
+
             ],
           ),
         ),
@@ -69,3 +72,22 @@ Widget BuildNewsItems({article,context})=>Padding(
     ],
   ),
 );
+Widget defulutTextFormFild ({@required TextEditingController controller, @required Function  validator, @required TextInputType type, @required String label, Color BorderSideColor:Colors.deepOrange, Color TextStyleColor:Colors.deepOrange, @required IconData prefixIcon})=>TextFormField(
+  validator:validator(),
+  controller:controller,
+  keyboardType: type,
+  decoration: InputDecoration(
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: BorderSideColor ),
+      borderRadius: BorderRadius.circular(25.0),
+    ),
+    labelText: label,
+    labelStyle: TextStyle(color: TextStyleColor),
+    prefixIcon: Icon(prefixIcon,color: Colors.deepOrange,),
+    border: OutlineInputBorder(),
+
+
+  ),
+
+);
+
