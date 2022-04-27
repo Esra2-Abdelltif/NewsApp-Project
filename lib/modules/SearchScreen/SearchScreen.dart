@@ -58,6 +58,8 @@ var Searchcontroller = TextEditingController();
                   itemBuilder:(context,index)=> BuildNewsItems(article:list[index],context: context),
                   itemCount: list.length,),
                 condition:state is! NewsGetBusinessLoadingState,
+
+
                 )),
             ],
           ),);

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp_project/modules/DetialsScreen/details_movies.dart';
+import 'package:newsapp_project/modules/WebView/WebView.dart';
 import 'package:newsapp_project/shared/Constans/constans.dart';
 
 
@@ -58,7 +58,7 @@ Widget BuildNewsItems({article,context})=>Padding(
                 text: TextSpan(
                     text: 'Read More..',style: TextStyle(color: Colors.blue,decoration: TextDecoration.underline,),
                      recognizer: TapGestureRecognizer()..onTap = () {
-                      NavigateTo(router: Description(),context: context);
+                      NavigateTo(router:WebViewScreen(article['url']),context: context);
 
                     }),
 
@@ -72,17 +72,22 @@ Widget BuildNewsItems({article,context})=>Padding(
     ],
   ),
 );
-Widget defulutTextFormFild ({@required TextEditingController controller, @required Function  validator, @required TextInputType type, @required String label, Color BorderSideColor:Colors.deepOrange, @required IconData prefixIcon})=>TextFormField(
+Widget defulutTextFormFild ({@required TextEditingController controller, @required Function  validator, @required TextInputType type, @required String label, Color BorderSideColor:Colors.deepOrange, @required IconData prefixIcon})=>
+    TextFormField(
+
   validator:validator(),
   controller:controller,
   keyboardType: type,
-  cursorColor: Colors.blue,
-  style: TextStyle(
-      color: Colors.blue
-  ),
+//         cursorColor: Color(0XFFFFCC00),//Cursor color change
+//         style: TextStyle(
+//         color: Color(0XFFFFCC00),
+// decorationColor: Color(0XFFFFCC00),//Font color change
+// backgroundColor: Color(0XFFFFCC00),//TextFormField title background color change
+// ),
+  //style: TextStyle(color: Colors.blue),
   decoration: InputDecoration(
-
     focusedBorder: OutlineInputBorder(
+
       borderSide: BorderSide(color: BorderSideColor ),
       borderRadius: BorderRadius.circular(25.0),
     ),
