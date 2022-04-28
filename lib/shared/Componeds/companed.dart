@@ -131,29 +131,13 @@ Widget BuildNewsItems({article,context})=>Padding(
 
 Widget defulutTextFormFild ({@required TextEditingController controller, @required Function  validator, @required TextInputType type, @required String label, Color BorderSideColor:Colors.deepOrange, @required IconData prefixIcon})=>
     TextFormField(
-
-  validator:validator(),
-  controller:controller,
-  keyboardType: type,
-//         cursorColor: Color(0XFFFFCC00),//Cursor color change
-//         style: TextStyle(
-//         color: Color(0XFFFFCC00),
-// decorationColor: Color(0XFFFFCC00),//Font color change
-// backgroundColor: Color(0XFFFFCC00),//TextFormField title background color change
-// ),
-  //style: TextStyle(color: Colors.blue),
-  decoration: InputDecoration(
-    focusedBorder: OutlineInputBorder(
-
-      borderSide: BorderSide(color: BorderSideColor ),
-      borderRadius: BorderRadius.circular(25.0),
-    ),
-    labelText: label,
-   // labelStyle: TextStyle(color: Colors.deepPurple,),
-    prefixIcon: Icon(prefixIcon,color: Colors.deepOrange,),
-    border: OutlineInputBorder(),
-
-
+      validator:validator(),
+      controller:controller,
+       keyboardType: type,
+      style: TextStyle(color: Colors.white),
+       decoration: InputDecoration(
+         labelText: label,
+         prefixIcon: Icon(prefixIcon,color: Colors.deepOrange,),
   ),
 
 );
