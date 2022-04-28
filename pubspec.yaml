@@ -43,6 +43,7 @@ dependencies:
   hexcolor: ^2.0.6
   shared_preferences: ^2.0.13
   webview_flutter: 0.3.23
+  flutter_conditional_rendering: ^2.0.0
 
 
 
