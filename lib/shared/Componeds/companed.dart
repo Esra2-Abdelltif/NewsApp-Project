@@ -7,7 +7,7 @@ import 'package:newsapp_project/shared/Constans/constans.dart';
 
 
 Widget BuildNewsItems({article,context})=>Padding(
-  padding: const EdgeInsets.all(15.0),
+  padding: const EdgeInsets.all(15),
   child: Conditional.single(
     context: context,
     conditionBuilder: (BuildContext context) =>article['urlToImage'] != null,
@@ -17,6 +17,8 @@ Widget BuildNewsItems({article,context})=>Padding(
             Container(
               height: 120,
               width: 120,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+              clipBehavior: Clip.antiAliasWithSaveLayer,
               child:CachedNetworkImage(
                 imageUrl:'${article['urlToImage']}',
                 imageBuilder: (context, imageProvider) => Container(
@@ -99,8 +101,7 @@ Widget BuildNewsItems({article,context})=>Padding(
                   // SizedBox(height: 20.0),
                   Row(
                     children: [
-                      // Icon(Icons.watch_later_outlined,color: Colors.grey[400]),
-                      // SizedBox(width: 7.0,),
+
                       Text ('${article['publishedAt']}',
                         style: TextStyle(color: Colors.grey[400], fontSize: 13 , fontWeight: FontWeight.w700),)
                     ],),

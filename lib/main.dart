@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:newsapp_project/Layout/HomeScreen.dart';
+import 'package:newsapp_project/Layout/splash_screen/spalsh_screen.dart';
 import 'package:newsapp_project/shared/Bloc/cubit.dart';
 import 'package:newsapp_project/shared/Bloc/observer_bloc.dart';
 import 'package:newsapp_project/shared/Network/local/cacheHelper.dart';
@@ -73,7 +74,9 @@ class MyApp extends StatelessWidget
                  backgroundColor: Colors.white,
                  elevation: 20,
                ),
+               hintColor:Color(0xFF8D8E98),
                textTheme: TextTheme(
+
                  bodyText1: TextStyle(fontSize: 18, fontWeight: FontWeight.w700,color: Colors.black),
                  bodyText2:  TextStyle(fontSize: 16, color: Colors.black),
 
@@ -87,6 +90,7 @@ class MyApp extends StatelessWidget
                appBarTheme: Theme.of(context).appBarTheme.copyWith(
                  titleSpacing: 15,
                  iconTheme: IconThemeData(color: Colors.white),
+
                  backwardsCompatibility: false,
                  backgroundColor:HexColor('333739'),
                  elevation: 0,
@@ -103,6 +107,7 @@ class MyApp extends StatelessWidget
 
                  ),
                ),
+
                bottomNavigationBarTheme: BottomNavigationBarThemeData(
                  type: BottomNavigationBarType.fixed,
                  selectedItemColor: Colors.deepOrange,
@@ -110,6 +115,10 @@ class MyApp extends StatelessWidget
                  backgroundColor:HexColor('333739'),
                  elevation: 20,
                ),
+               hintColor:Color(0xFF8D8E98),
+               //inputDecorationTheme:InputDecorationTheme(fillColor: Colors.orange, filled: true) ,
+               cursorColor: Colors.white,
+
                textTheme: TextTheme(
                  bodyText1: TextStyle(fontSize: 18, fontWeight: FontWeight.w700,color: Colors.white),
                  bodyText2:  TextStyle(fontSize: 16, color: Colors.white),
@@ -119,7 +128,7 @@ class MyApp extends StatelessWidget
            themeMode: AppCubit.get(context).IsDark ? ThemeMode.dark :ThemeMode.light,
            debugShowCheckedModeBanner: false,
 
-           home: HomeScreen(),
+           home: SplashSCreen(),
          );
         },
       ),

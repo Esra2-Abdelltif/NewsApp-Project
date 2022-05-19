@@ -20,7 +20,14 @@ class ScienceScreen extends StatelessWidget {
         var list=NewsCubit.get(context).Science;
         return ConditionalBuilder(
           builder: (context) =>ListView.separated(
-              separatorBuilder: (BuildContext context, int index) => const Divider(),
+              separatorBuilder: (BuildContext context, int index) =>  Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30 ),
+                child: Container(
+                  width: double.infinity,
+                  height: 1,
+                  color: Color(0xFF8D8E98),
+                ),
+              ),
               physics: BouncingScrollPhysics(),
               itemBuilder:(context,index)=> BuildNewsItems(article:list[index],context: context),
               itemCount: list.length),
