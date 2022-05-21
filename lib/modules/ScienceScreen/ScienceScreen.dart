@@ -2,9 +2,11 @@ import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:newsapp_project/shared/Bloc/cubit.dart';
 import 'package:newsapp_project/shared/Bloc/states.dart';
 import 'package:newsapp_project/shared/Componeds/companed.dart';
+import 'package:newsapp_project/shared/theme/Bloc/cubit.dart';
 
 class ScienceScreen extends StatelessWidget {
   const ScienceScreen({Key key}) : super(key: key);
@@ -19,17 +21,9 @@ class ScienceScreen extends StatelessWidget {
       builder: (BuildContext context ,NewsStates state) {
         var list=NewsCubit.get(context).Science;
         return ConditionalBuilder(
-          builder: (context) =>ListView.separated(
-              separatorBuilder: (BuildContext context, int index) =>  Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30 ),
-                child: Container(
-                  width: double.infinity,
-                  height: 1,
-                  color: Color(0xFF8D8E98),
-                ),
-              ),
+          builder: (context) =>ListView.builder(
               physics: BouncingScrollPhysics(),
-              itemBuilder:(context,index)=> BuildNewsItems(article:list[index],context: context),
+              itemBuilder:(context,index)=> BuildNewsItems(article:list[index],context: context,BuildTaskColor: AppCubit.get(context).IsDark ? HexColor('333739'): Colors.white),
               itemCount: list.length),
           condition:list.length > 0,
           fallback: (context)=>  Center(
