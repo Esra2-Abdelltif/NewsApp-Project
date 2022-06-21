@@ -10,6 +10,8 @@ News API using Dio Package.
 API Return Title, Name, URL ,image and Published at "Date".
 
 ![image](https://user-images.githubusercontent.com/72301777/174888784-a7f9d844-6b82-45fd-bbce-19b046277ce3.png)
+
+
 ![image](https://user-images.githubusercontent.com/72301777/174883571-f4e1230a-bdb9-4a4d-94b1-179a8dbaa716.png)
 ![image](https://user-images.githubusercontent.com/72301777/174884165-f519dc62-7460-4749-a02b-6c842ba3a0fd.png)
 ![image](https://user-images.githubusercontent.com/72301777/174884195-574a0762-7554-429d-bb30-8883c0ba514d.png)
